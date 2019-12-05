@@ -6,7 +6,7 @@ const {auth} = require('./middleware/auth');
 const {User} = require('./models/user');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/auth')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/auth')
 const app = express();
 
 app.use(bodyParser.json());
